@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CrkvenaKancelarijaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Dokument">
+          <Key>
+            <PropertyRef Name="SifraDokumenta" />
+          </Key>
+          <Property Name="SifraDokumenta" Type="int" Nullable="false" />
+          <Property Name="VrstaDokumenta" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Krstenica">
+          <Key>
+            <PropertyRef Name="SifraDokumenta" />
+            <PropertyRef Name="SifraKrstenice" />
+          </Key>
+          <Property Name="SifraDokumenta" Type="int" Nullable="false" />
+          <Property Name="SifraKrstenice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImeVernika" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PrezimeVernika" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Pol" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DatumRodjenja" Type="date" Nullable="false" />
+          <Property Name="Eparhija" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Hram" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TekucaGodina" Type="int" Nullable="false" />
+          <Property Name="ZanimanjeVernika" Type="nvarchar" MaxLength="50" />
+          <Property Name="MestoRodjenja" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DatumKrstenja" Type="date" Nullable="false" />
+          <Property Name="ImeOca" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PrezimeOca" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ImeMajke" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PrezimeMajke" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ZanimanjeOca" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ZanimanjeMajke" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MestoStanovanjaRoditelja" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NarodnostOca" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="NarodnostMajke" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DetePoRedu" Type="nvarchar" MaxLength="25" Nullable="false" />
+          <Property Name="DeteBlizanac" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="TelesniNedostaci" Type="nvarchar" MaxLength="150" />
+          <Property Name="ImeKuma" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PrezimeKuma" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="MestoStanovanjaKuma" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImeSvestenika" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PrezimeSvestenika" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Primedba" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Korisnik" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Sifra" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TipKorisnika" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prezime" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Narudzbenica">
+          <Key>
+            <PropertyRef Name="SifraNarudzbenice" />
+            <PropertyRef Name="SifraDokumenta" />
+          </Key>
+          <Property Name="SifraNarudzbenice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SifraDokumenta" Type="int" Nullable="false" />
+          <Property Name="Ime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prezime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Hram" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefon" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Datum" Type="date" Nullable="false" />
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Reseno" Type="bit" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Umrlica">
+          <Key>
+            <PropertyRef Name="SifraDokumenta" />
+            <PropertyRef Name="SifraUmrlice" />
+          </Key>
+          <Property Name="SifraDokumenta" Type="int" Nullable="false" />
+          <Property Name="SifraUmrlice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImePreminulog" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PrezimePreminulog" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Pol" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="DatumRodjenja" Type="date" Nullable="false" />
+          <Property Name="MestoRodjenja" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Eparhija" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Hram" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TekucaGodina" Type="int" Nullable="false" />
+          <Property Name="ZanimanjePreminulog" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MestoRodjenjaPreminulog" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BracnoStanje" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ImeBracnogPartnera" Type="nvarchar" MaxLength="20" />
+          <Property Name="PrezimeBracnogPartnera" Type="nvarchar" MaxLength="20" />
+          <Property Name="ZanimanjeBracnogPartnera" Type="nvarchar" MaxLength="50" />
+          <Property Name="MestoStanovanjaBracnogPartnera" Type="nvarchar" MaxLength="50" />
+          <Property Name="BrojDece" Type="int" />
+          <Property Name="PodaciODeci" Type="nvarchar" MaxLength="800" />
+          <Property Name="MestoPreminuca" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DatumSmrti" Type="datetime" Nullable="false" />
+          <Property Name="DatumSahrane" Type="date" Nullable="false" />
+          <Property Name="MestoIGrobljeSahrane" Type="nvarchar" MaxLength="80" Nullable="false" />
+          <Property Name="UzrokSmrti" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImeSvestenika" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PrezimeSvestenika" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IspovedjenIPricescen" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Primedba" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="VencaniList">
+          <Key>
+            <PropertyRef Name="SifraDokumenta" />
+            <PropertyRef Name="SifraVencanogLista" />
+          </Key>
+          <Property Name="SifraDokumenta" Type="int" Nullable="false" />
+          <Property Name="SifraVencanogLista" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ImeMladozenje" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PrezimeMladozenje" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ImeMlade" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PrezimeMlade" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="DatumRodjenjaMladozenje" Type="date" Nullable="false" />
+          <Property Name="DatumRodjenjaMlade" Type="date" Nullable="false" />
+          <Property Name="MestoStanovanjaMladenaca" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="VeroispovestMladozenje" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="VeroispovestMlade" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="NarodnostMladozenje" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="NarodnostMlade" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="Eparhija" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Hram" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TekucaGodina" Type="int" Nullable="false" />
+          <Property Name="ImeOcaMladozenje" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PrezimeOcaMladozenje" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ImeMajkeMladozenje" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PrezimeMajkeMladozenje" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ImeOcaMlade" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PrezimeOcaMlade" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="ImeMajkeMlade" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="PrezimeMajkeMlade" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="BrakPoReduMladozenja" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="BrakPoReduMlada" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="IspitaniIOglaseni" Type="date" Nullable="false" />
+          <Property Name="DatumVencanja" Type="date" Nullable="false" />
+          <Property Name="MestoVencanja" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="HramVencanja" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImeIPrezimeKuma" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="ZanimanjeKuma" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="MestoStanovanjaKuma" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ImeIPrezimeStarogSvata" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="ZanimanjeStarogSvata" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="VeroispovestStarogSvata" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="MestoStanovanjaStarogSvata" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Smetnje" Type="nvarchar" MaxLength="60" Nullable="false" />
+          <Property Name="Primedba" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <Association Name="FK_Krstenica_Dokument">
+          <End Role="Dokument" Type="Self.Dokument" Multiplicity="1" />
+          <End Role="Krstenica" Type="Self.Krstenica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokument">
+              <PropertyRef Name="SifraDokumenta" />
+            </Principal>
+            <Dependent Role="Krstenica">
+              <PropertyRef Name="SifraDokumenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Narudzbenica_Dokument">
+          <End Role="Dokument" Type="Self.Dokument" Multiplicity="1" />
+          <End Role="Narudzbenica" Type="Self.Narudzbenica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokument">
+              <PropertyRef Name="SifraDokumenta" />
+            </Principal>
+            <Dependent Role="Narudzbenica">
+              <PropertyRef Name="SifraDokumenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Narudzbenica_Login">
+          <End Role="Login" Type="Self.Login" Multiplicity="1" />
+          <End Role="Narudzbenica" Type="Self.Narudzbenica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Narudzbenica">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Umrlica_Dokument">
+          <End Role="Dokument" Type="Self.Dokument" Multiplicity="1" />
+          <End Role="Umrlica" Type="Self.Umrlica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokument">
+              <PropertyRef Name="SifraDokumenta" />
+            </Principal>
+            <Dependent Role="Umrlica">
+              <PropertyRef Name="SifraDokumenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VencaniList_Dokument">
+          <End Role="Dokument" Type="Self.Dokument" Multiplicity="1" />
+          <End Role="VencaniList" Type="Self.VencaniList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokument">
+              <PropertyRef Name="SifraDokumenta" />
+            </Principal>
+            <Dependent Role="VencaniList">
+              <PropertyRef Name="SifraDokumenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CrkvenaKancelarijaModelStoreContainer">
+          <EntitySet Name="Dokument" EntityType="Self.Dokument" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Krstenica" EntityType="Self.Krstenica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Narudzbenica" EntityType="Self.Narudzbenica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Umrlica" EntityType="Self.Umrlica" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VencaniList" EntityType="Self.VencaniList" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Krstenica_Dokument" Association="Self.FK_Krstenica_Dokument">
+            <End Role="Dokument" EntitySet="Dokument" />
+            <End Role="Krstenica" EntitySet="Krstenica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Narudzbenica_Dokument" Association="Self.FK_Narudzbenica_Dokument">
+            <End Role="Dokument" EntitySet="Dokument" />
+            <End Role="Narudzbenica" EntitySet="Narudzbenica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Narudzbenica_Login" Association="Self.FK_Narudzbenica_Login">
+            <End Role="Login" EntitySet="Login" />
+            <End Role="Narudzbenica" EntitySet="Narudzbenica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Umrlica_Dokument" Association="Self.FK_Umrlica_Dokument">
+            <End Role="Dokument" EntitySet="Dokument" />
+            <End Role="Umrlica" EntitySet="Umrlica" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VencaniList_Dokument" Association="Self.FK_VencaniList_Dokument">
+            <End Role="Dokument" EntitySet="Dokument" />
+            <End Role="VencaniList" EntitySet="VencaniList" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CrkvenaKancelarijaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Dokument">
+          <Key>
+            <PropertyRef Name="SifraDokumenta" />
+          </Key>
+          <Property Name="SifraDokumenta" Type="Int32" Nullable="false" />
+          <Property Name="VrstaDokumenta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Krstenicas" Relationship="Self.FK_Krstenica_Dokument" FromRole="Dokument" ToRole="Krstenica" />
+          <NavigationProperty Name="Narudzbenicas" Relationship="Self.FK_Narudzbenica_Dokument" FromRole="Dokument" ToRole="Narudzbenica" />
+          <NavigationProperty Name="Umrlicas" Relationship="Self.FK_Umrlica_Dokument" FromRole="Dokument" ToRole="Umrlica" />
+          <NavigationProperty Name="VencaniLists" Relationship="Self.FK_VencaniList_Dokument" FromRole="Dokument" ToRole="VencaniList" />
+        </EntityType>
+        <EntityType Name="Krstenica">
+          <Key>
+            <PropertyRef Name="SifraDokumenta" />
+            <PropertyRef Name="SifraKrstenice" />
+          </Key>
+          <Property Name="SifraDokumenta" Type="Int32" Nullable="false" />
+          <Property Name="SifraKrstenice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImeVernika" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrezimeVernika" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pol" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DatumRodjenja" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Eparhija" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Hram" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TekucaGodina" Type="Int32" Nullable="false" />
+          <Property Name="ZanimanjeVernika" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MestoRodjenja" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DatumKrstenja" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ImeOca" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrezimeOca" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImeMajke" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrezimeMajke" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ZanimanjeOca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ZanimanjeMajke" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MestoStanovanjaRoditelja" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NarodnostOca" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NarodnostMajke" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DetePoRedu" Type="String" MaxLength="25" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DeteBlizanac" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TelesniNedostaci" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="ImeKuma" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrezimeKuma" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MestoStanovanjaKuma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImeSvestenika" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrezimeSvestenika" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Primedba" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dokument" Relationship="Self.FK_Krstenica_Dokument" FromRole="Krstenica" ToRole="Dokument" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Korisnik" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sifra" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TipKorisnika" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Narudzbenicas" Relationship="Self.FK_Narudzbenica_Login" FromRole="Login" ToRole="Narudzbenica" />
+        </EntityType>
+        <EntityType Name="Narudzbenica">
+          <Key>
+            <PropertyRef Name="SifraNarudzbenice" />
+            <PropertyRef Name="SifraDokumenta" />
+          </Key>
+          <Property Name="SifraNarudzbenice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SifraDokumenta" Type="Int32" Nullable="false" />
+          <Property Name="Ime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Prezime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Hram" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Dokument" Relationship="Self.FK_Narudzbenica_Dokument" FromRole="Narudzbenica" ToRole="Dokument" />
+          <NavigationProperty Name="Login" Relationship="Self.FK_Narudzbenica_Login" FromRole="Narudzbenica" ToRole="Login" />
+          <Property Name="Reseno" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Umrlica">
+          <Key>
+            <PropertyRef Name="SifraDokumenta" />
+            <PropertyRef Name="SifraUmrlice" />
+          </Key>
+          <Property Name="SifraDokumenta" Type="Int32" Nullable="false" />
+          <Property Name="SifraUmrlice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImePreminulog" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrezimePreminulog" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Pol" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DatumRodjenja" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MestoRodjenja" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Eparhija" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Hram" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TekucaGodina" Type="Int32" Nullable="false" />
+          <Property Name="ZanimanjePreminulog" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MestoRodjenjaPreminulog" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BracnoStanje" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImeBracnogPartnera" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="PrezimeBracnogPartnera" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="ZanimanjeBracnogPartnera" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MestoStanovanjaBracnogPartnera" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BrojDece" Type="Int32" />
+          <Property Name="PodaciODeci" Type="String" MaxLength="800" FixedLength="false" Unicode="true" />
+          <Property Name="MestoPreminuca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DatumSmrti" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DatumSahrane" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MestoIGrobljeSahrane" Type="String" MaxLength="80" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UzrokSmrti" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImeSvestenika" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrezimeSvestenika" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IspovedjenIPricescen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Primedba" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dokument" Relationship="Self.FK_Umrlica_Dokument" FromRole="Umrlica" ToRole="Dokument" />
+        </EntityType>
+        <EntityType Name="VencaniList">
+          <Key>
+            <PropertyRef Name="SifraDokumenta" />
+            <PropertyRef Name="SifraVencanogLista" />
+          </Key>
+          <Property Name="SifraDokumenta" Type="Int32" Nullable="false" />
+          <Property Name="SifraVencanogLista" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ImeMladozenje" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrezimeMladozenje" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImeMlade" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrezimeMlade" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DatumRodjenjaMladozenje" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DatumRodjenjaMlade" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MestoStanovanjaMladenaca" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VeroispovestMladozenje" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VeroispovestMlade" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NarodnostMladozenje" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NarodnostMlade" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Eparhija" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Hram" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TekucaGodina" Type="Int32" Nullable="false" />
+          <Property Name="ImeOcaMladozenje" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrezimeOcaMladozenje" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImeMajkeMladozenje" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrezimeMajkeMladozenje" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImeOcaMlade" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrezimeOcaMlade" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImeMajkeMlade" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PrezimeMajkeMlade" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BrakPoReduMladozenja" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BrakPoReduMlada" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IspitaniIOglaseni" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="DatumVencanja" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="MestoVencanja" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="HramVencanja" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImeIPrezimeKuma" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ZanimanjeKuma" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MestoStanovanjaKuma" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ImeIPrezimeStarogSvata" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ZanimanjeStarogSvata" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="VeroispovestStarogSvata" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MestoStanovanjaStarogSvata" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Smetnje" Type="String" MaxLength="60" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Primedba" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dokument" Relationship="Self.FK_VencaniList_Dokument" FromRole="VencaniList" ToRole="Dokument" />
+        </EntityType>
+        <Association Name="FK_Krstenica_Dokument">
+          <End Role="Dokument" Type="Self.Dokument" Multiplicity="1" />
+          <End Role="Krstenica" Type="Self.Krstenica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokument">
+              <PropertyRef Name="SifraDokumenta" />
+            </Principal>
+            <Dependent Role="Krstenica">
+              <PropertyRef Name="SifraDokumenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Narudzbenica_Dokument">
+          <End Role="Dokument" Type="Self.Dokument" Multiplicity="1" />
+          <End Role="Narudzbenica" Type="Self.Narudzbenica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokument">
+              <PropertyRef Name="SifraDokumenta" />
+            </Principal>
+            <Dependent Role="Narudzbenica">
+              <PropertyRef Name="SifraDokumenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Umrlica_Dokument">
+          <End Role="Dokument" Type="Self.Dokument" Multiplicity="1" />
+          <End Role="Umrlica" Type="Self.Umrlica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokument">
+              <PropertyRef Name="SifraDokumenta" />
+            </Principal>
+            <Dependent Role="Umrlica">
+              <PropertyRef Name="SifraDokumenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VencaniList_Dokument">
+          <End Role="Dokument" Type="Self.Dokument" Multiplicity="1" />
+          <End Role="VencaniList" Type="Self.VencaniList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dokument">
+              <PropertyRef Name="SifraDokumenta" />
+            </Principal>
+            <Dependent Role="VencaniList">
+              <PropertyRef Name="SifraDokumenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Narudzbenica_Login">
+          <End Role="Login" Type="Self.Login" Multiplicity="1" />
+          <End Role="Narudzbenica" Type="Self.Narudzbenica" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Login">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Narudzbenica">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CrkvenaKancelarijaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Dokuments" EntityType="Self.Dokument" />
+          <EntitySet Name="Krstenicas" EntityType="Self.Krstenica" />
+          <EntitySet Name="Logins" EntityType="Self.Login" />
+          <EntitySet Name="Narudzbenicas" EntityType="Self.Narudzbenica" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="Umrlicas" EntityType="Self.Umrlica" />
+          <EntitySet Name="VencaniLists" EntityType="Self.VencaniList" />
+          <AssociationSet Name="FK_Krstenica_Dokument" Association="Self.FK_Krstenica_Dokument">
+            <End Role="Dokument" EntitySet="Dokuments" />
+            <End Role="Krstenica" EntitySet="Krstenicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Narudzbenica_Dokument" Association="Self.FK_Narudzbenica_Dokument">
+            <End Role="Dokument" EntitySet="Dokuments" />
+            <End Role="Narudzbenica" EntitySet="Narudzbenicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Umrlica_Dokument" Association="Self.FK_Umrlica_Dokument">
+            <End Role="Dokument" EntitySet="Dokuments" />
+            <End Role="Umrlica" EntitySet="Umrlicas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VencaniList_Dokument" Association="Self.FK_VencaniList_Dokument">
+            <End Role="Dokument" EntitySet="Dokuments" />
+            <End Role="VencaniList" EntitySet="VencaniLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Narudzbenica_Login" Association="Self.FK_Narudzbenica_Login">
+            <End Role="Login" EntitySet="Logins" />
+            <End Role="Narudzbenica" EntitySet="Narudzbenicas" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CrkvenaKancelarijaModelStoreContainer" CdmEntityContainer="CrkvenaKancelarijaEntities">
+          <EntitySetMapping Name="Dokuments">
+            <EntityTypeMapping TypeName="CrkvenaKancelarijaModel.Dokument">
+              <MappingFragment StoreEntitySet="Dokument">
+                <ScalarProperty Name="SifraDokumenta" ColumnName="SifraDokumenta" />
+                <ScalarProperty Name="VrstaDokumenta" ColumnName="VrstaDokumenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Krstenicas">
+            <EntityTypeMapping TypeName="CrkvenaKancelarijaModel.Krstenica">
+              <MappingFragment StoreEntitySet="Krstenica">
+                <ScalarProperty Name="SifraDokumenta" ColumnName="SifraDokumenta" />
+                <ScalarProperty Name="SifraKrstenice" ColumnName="SifraKrstenice" />
+                <ScalarProperty Name="ImeVernika" ColumnName="ImeVernika" />
+                <ScalarProperty Name="PrezimeVernika" ColumnName="PrezimeVernika" />
+                <ScalarProperty Name="Pol" ColumnName="Pol" />
+                <ScalarProperty Name="DatumRodjenja" ColumnName="DatumRodjenja" />
+                <ScalarProperty Name="Eparhija" ColumnName="Eparhija" />
+                <ScalarProperty Name="Hram" ColumnName="Hram" />
+                <ScalarProperty Name="TekucaGodina" ColumnName="TekucaGodina" />
+                <ScalarProperty Name="ZanimanjeVernika" ColumnName="ZanimanjeVernika" />
+                <ScalarProperty Name="MestoRodjenja" ColumnName="MestoRodjenja" />
+                <ScalarProperty Name="DatumKrstenja" ColumnName="DatumKrstenja" />
+                <ScalarProperty Name="ImeOca" ColumnName="ImeOca" />
+                <ScalarProperty Name="PrezimeOca" ColumnName="PrezimeOca" />
+                <ScalarProperty Name="ImeMajke" ColumnName="ImeMajke" />
+                <ScalarProperty Name="PrezimeMajke" ColumnName="PrezimeMajke" />
+                <ScalarProperty Name="ZanimanjeOca" ColumnName="ZanimanjeOca" />
+                <ScalarProperty Name="ZanimanjeMajke" ColumnName="ZanimanjeMajke" />
+                <ScalarProperty Name="MestoStanovanjaRoditelja" ColumnName="MestoStanovanjaRoditelja" />
+                <ScalarProperty Name="NarodnostOca" ColumnName="NarodnostOca" />
+                <ScalarProperty Name="NarodnostMajke" ColumnName="NarodnostMajke" />
+                <ScalarProperty Name="DetePoRedu" ColumnName="DetePoRedu" />
+                <ScalarProperty Name="DeteBlizanac" ColumnName="DeteBlizanac" />
+                <ScalarProperty Name="TelesniNedostaci" ColumnName="TelesniNedostaci" />
+                <ScalarProperty Name="ImeKuma" ColumnName="ImeKuma" />
+                <ScalarProperty Name="PrezimeKuma" ColumnName="PrezimeKuma" />
+                <ScalarProperty Name="MestoStanovanjaKuma" ColumnName="MestoStanovanjaKuma" />
+                <ScalarProperty Name="ImeSvestenika" ColumnName="ImeSvestenika" />
+                <ScalarProperty Name="PrezimeSvestenika" ColumnName="PrezimeSvestenika" />
+                <ScalarProperty Name="Primedba" ColumnName="Primedba" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="CrkvenaKancelarijaModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Korisnik" ColumnName="Korisnik" />
+                <ScalarProperty Name="Sifra" ColumnName="Sifra" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TipKorisnika" ColumnName="TipKorisnika" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Narudzbenicas">
+            <EntityTypeMapping TypeName="CrkvenaKancelarijaModel.Narudzbenica">
+              <MappingFragment StoreEntitySet="Narudzbenica">
+                <ScalarProperty Name="Reseno" ColumnName="Reseno" />
+                <ScalarProperty Name="SifraNarudzbenice" ColumnName="SifraNarudzbenice" />
+                <ScalarProperty Name="SifraDokumenta" ColumnName="SifraDokumenta" />
+                <ScalarProperty Name="Ime" ColumnName="Ime" />
+                <ScalarProperty Name="Prezime" ColumnName="Prezime" />
+                <ScalarProperty Name="Hram" ColumnName="Hram" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="CrkvenaKancelarijaModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Umrlicas">
+            <EntityTypeMapping TypeName="CrkvenaKancelarijaModel.Umrlica">
+              <MappingFragment StoreEntitySet="Umrlica">
+                <ScalarProperty Name="SifraDokumenta" ColumnName="SifraDokumenta" />
+                <ScalarProperty Name="SifraUmrlice" ColumnName="SifraUmrlice" />
+                <ScalarProperty Name="ImePreminulog" ColumnName="ImePreminulog" />
+                <ScalarProperty Name="PrezimePreminulog" ColumnName="PrezimePreminulog" />
+                <ScalarProperty Name="Pol" ColumnName="Pol" />
+                <ScalarProperty Name="DatumRodjenja" ColumnName="DatumRodjenja" />
+                <ScalarProperty Name="MestoRodjenja" ColumnName="MestoRodjenja" />
+                <ScalarProperty Name="Eparhija" ColumnName="Eparhija" />
+                <ScalarProperty Name="Hram" ColumnName="Hram" />
+                <ScalarProperty Name="TekucaGodina" ColumnName="TekucaGodina" />
+                <ScalarProperty Name="ZanimanjePreminulog" ColumnName="ZanimanjePreminulog" />
+                <ScalarProperty Name="MestoRodjenjaPreminulog" ColumnName="MestoRodjenjaPreminulog" />
+                <ScalarProperty Name="BracnoStanje" ColumnName="BracnoStanje" />
+                <ScalarProperty Name="ImeBracnogPartnera" ColumnName="ImeBracnogPartnera" />
+                <ScalarProperty Name="PrezimeBracnogPartnera" ColumnName="PrezimeBracnogPartnera" />
+                <ScalarProperty Name="ZanimanjeBracnogPartnera" ColumnName="ZanimanjeBracnogPartnera" />
+                <ScalarProperty Name="MestoStanovanjaBracnogPartnera" ColumnName="MestoStanovanjaBracnogPartnera" />
+                <ScalarProperty Name="BrojDece" ColumnName="BrojDece" />
+                <ScalarProperty Name="PodaciODeci" ColumnName="PodaciODeci" />
+                <ScalarProperty Name="MestoPreminuca" ColumnName="MestoPreminuca" />
+                <ScalarProperty Name="DatumSmrti" ColumnName="DatumSmrti" />
+                <ScalarProperty Name="DatumSahrane" ColumnName="DatumSahrane" />
+                <ScalarProperty Name="MestoIGrobljeSahrane" ColumnName="MestoIGrobljeSahrane" />
+                <ScalarProperty Name="UzrokSmrti" ColumnName="UzrokSmrti" />
+                <ScalarProperty Name="ImeSvestenika" ColumnName="ImeSvestenika" />
+                <ScalarProperty Name="PrezimeSvestenika" ColumnName="PrezimeSvestenika" />
+                <ScalarProperty Name="IspovedjenIPricescen" ColumnName="IspovedjenIPricescen" />
+                <ScalarProperty Name="Primedba" ColumnName="Primedba" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VencaniLists">
+            <EntityTypeMapping TypeName="CrkvenaKancelarijaModel.VencaniList">
+              <MappingFragment StoreEntitySet="VencaniList">
+                <ScalarProperty Name="SifraDokumenta" ColumnName="SifraDokumenta" />
+                <ScalarProperty Name="SifraVencanogLista" ColumnName="SifraVencanogLista" />
+                <ScalarProperty Name="ImeMladozenje" ColumnName="ImeMladozenje" />
+                <ScalarProperty Name="PrezimeMladozenje" ColumnName="PrezimeMladozenje" />
+                <ScalarProperty Name="ImeMlade" ColumnName="ImeMlade" />
+                <ScalarProperty Name="PrezimeMlade" ColumnName="PrezimeMlade" />
+                <ScalarProperty Name="DatumRodjenjaMladozenje" ColumnName="DatumRodjenjaMladozenje" />
+                <ScalarProperty Name="DatumRodjenjaMlade" ColumnName="DatumRodjenjaMlade" />
+                <ScalarProperty Name="MestoStanovanjaMladenaca" ColumnName="MestoStanovanjaMladenaca" />
+                <ScalarProperty Name="VeroispovestMladozenje" ColumnName="VeroispovestMladozenje" />
+                <ScalarProperty Name="VeroispovestMlade" ColumnName="VeroispovestMlade" />
+                <ScalarProperty Name="NarodnostMladozenje" ColumnName="NarodnostMladozenje" />
+                <ScalarProperty Name="NarodnostMlade" ColumnName="NarodnostMlade" />
+                <ScalarProperty Name="Eparhija" ColumnName="Eparhija" />
+                <ScalarProperty Name="Hram" ColumnName="Hram" />
+                <ScalarProperty Name="TekucaGodina" ColumnName="TekucaGodina" />
+                <ScalarProperty Name="ImeOcaMladozenje" ColumnName="ImeOcaMladozenje" />
+                <ScalarProperty Name="PrezimeOcaMladozenje" ColumnName="PrezimeOcaMladozenje" />
+                <ScalarProperty Name="ImeMajkeMladozenje" ColumnName="ImeMajkeMladozenje" />
+                <ScalarProperty Name="PrezimeMajkeMladozenje" ColumnName="PrezimeMajkeMladozenje" />
+                <ScalarProperty Name="ImeOcaMlade" ColumnName="ImeOcaMlade" />
+                <ScalarProperty Name="PrezimeOcaMlade" ColumnName="PrezimeOcaMlade" />
+                <ScalarProperty Name="ImeMajkeMlade" ColumnName="ImeMajkeMlade" />
+                <ScalarProperty Name="PrezimeMajkeMlade" ColumnName="PrezimeMajkeMlade" />
+                <ScalarProperty Name="BrakPoReduMladozenja" ColumnName="BrakPoReduMladozenja" />
+                <ScalarProperty Name="BrakPoReduMlada" ColumnName="BrakPoReduMlada" />
+                <ScalarProperty Name="IspitaniIOglaseni" ColumnName="IspitaniIOglaseni" />
+                <ScalarProperty Name="DatumVencanja" ColumnName="DatumVencanja" />
+                <ScalarProperty Name="MestoVencanja" ColumnName="MestoVencanja" />
+                <ScalarProperty Name="HramVencanja" ColumnName="HramVencanja" />
+                <ScalarProperty Name="ImeIPrezimeKuma" ColumnName="ImeIPrezimeKuma" />
+                <ScalarProperty Name="ZanimanjeKuma" ColumnName="ZanimanjeKuma" />
+                <ScalarProperty Name="MestoStanovanjaKuma" ColumnName="MestoStanovanjaKuma" />
+                <ScalarProperty Name="ImeIPrezimeStarogSvata" ColumnName="ImeIPrezimeStarogSvata" />
+                <ScalarProperty Name="ZanimanjeStarogSvata" ColumnName="ZanimanjeStarogSvata" />
+                <ScalarProperty Name="VeroispovestStarogSvata" ColumnName="VeroispovestStarogSvata" />
+                <ScalarProperty Name="MestoStanovanjaStarogSvata" ColumnName="MestoStanovanjaStarogSvata" />
+                <ScalarProperty Name="Smetnje" ColumnName="Smetnje" />
+                <ScalarProperty Name="Primedba" ColumnName="Primedba" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
