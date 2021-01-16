@@ -1,0 +1,271 @@
+﻿@model Crkvena_Kancelarija.Models.Krstenica
+
+@{
+    ViewBag.Title = "Обриши крштеницу";
+}
+@{
+
+    if (Session["id"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+<h2>ОБРИШИ КРШТЕНИЦУ</h2>
+
+<h3>Да ли сте сигурни да желите избрисати крштеницу?</h3>
+<div>
+    <h4>Крштеница</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SifraDokumenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SifraDokumenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SifraKrstenice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SifraKrstenice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImeVernika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeVernika)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezimeVernika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezimeVernika)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumRodjenja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumRodjenja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eparhija)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eparhija)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TekucaGodina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TekucaGodina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZanimanjeVernika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZanimanjeVernika)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MestoRodjenja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MestoRodjenja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumKrstenja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumKrstenja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImeOca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeOca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezimeOca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezimeOca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImeMajke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeMajke)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezimeMajke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezimeMajke)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZanimanjeOca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZanimanjeOca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZanimanjeMajke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZanimanjeMajke)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MestoStanovanjaRoditelja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MestoStanovanjaRoditelja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NarodnostOca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NarodnostOca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NarodnostMajke)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NarodnostMajke)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetePoRedu)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetePoRedu)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DeteBlizanac)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DeteBlizanac)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelesniNedostaci)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelesniNedostaci)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImeKuma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeKuma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezimeKuma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezimeKuma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MestoStanovanjaKuma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MestoStanovanjaKuma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImeSvestenika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeSvestenika)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezimeSvestenika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezimeSvestenika)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Primedba)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Primedba)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Избриши" class="btn btn-default" /> |
+            
+        </div>
+    }
+</div>

@@ -1,0 +1,141 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+@{
+    ViewBag.Title = "Слике";
+}
+
+<!DOCTYPE html>
+<html>
+<title>Слике</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="~/Content/Style.css">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body, h1, h2, h3, h4, h5, h6 {
+        font-family: "Montserrat", sans-serif
+    }
+
+    .w3-row-padding img {
+        margin-bottom: 12px
+    }
+
+    .w3-sidebar {
+        width: 120px;
+        background: #222;
+    }
+
+    #main {
+        margin-left: 120px
+    }
+    div.gallery {
+        margin-left: 30px;
+        margin-bottom:30px;
+
+        border: 1px solid #ccc;
+        float: left;
+        width: 180px;
+        height:250px;
+    }
+
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+
+        div.gallery img {
+            width: 100%;
+            height: auto;
+        }
+
+    div.desc {
+        padding: 15px;
+        text-align: center;
+    }
+</style>
+<body class="w3-black">
+
+    <!-- Icon Bar (Sidebar - hidden on small screens) -->
+    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+        <!-- Avatar image in top left corner -->
+        <img src="~/Content/Images/krst.png" style="width:50%">
+        <a href='@Url.Action("Index", "Home")' class="w3-bar-item w3-button w3-padding-large w3-black">
+            <i class="fa fa-home w3-xxlarge"></i>
+            <p>ПОЧЕТНА</p>
+        </a>
+        <a href='@Url.Action("Index", "Onama")' class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fa fa-user w3-xxlarge"></i>
+            <p>О НАМА</p>
+        </a>
+        <a href='@Url.Action("Index", "Slike")' class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fa fa-eye w3-xxlarge"></i>
+            <p>СЛИКЕ</p>
+        </a>
+        <a href='@Url.Action("Index", "Kontakt")' class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fa fa-envelope w3-xxlarge"></i>
+            <p>КОНТАКТ</p>
+        </a>
+        <a href='@Url.Action("Index", "Login")' class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fa fa-user w3-xxlarge"></i>
+            <p>УЛОГУЈ СЕ</p>
+        </a>
+        <a href='@Url.Action("Index", "Registracija")' class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+            <i class="fa fa-registered w3-xxlarge"></i>
+            <p>РЕГИСТРУЈ СЕ</p>
+        </a>
+    </nav>
+
+
+
+    <!-- Page Content -->
+    <div class="w3-padding-large" id="main">
+        <!-- Header/Home -->
+        <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+            <h1 class="w3-jumbo"><span class="w3-hide-small">СРПСКА </span>ПРАВОСЛАВНА ЦРКВА</h1>
+            <p><i>~ НЕ ДАМО СВЕТИЊЕ ~</i></p>
+            <img src="~/Content/Images/svetinje.jpg" class="w3-image" width="550" height="200">
+        </header>
+
+        <!-- About Section -->
+        <div class="w3-padding-64 w3-content" id="photos">
+            <h2 class="w3-text-light-grey">Слике</h2>
+            <hr style="width:200px" class="w3-opacity">
+
+            <!-- Grid for photos -->
+            <div class="w3-row-padding" style="margin:0 -16px">
+                <div class="w3-half">
+                    <img src="~/Content/Images/hram.jpg" style="width:100%">
+                    <img src="~/Content/Images/slika2.jpg" style="width:100%">
+                    <img src="~/Content/Images/slika3.jpg" style="width:100%">
+                </div>
+
+                <div class="w3-half">
+                    <img src="~/Content/Images/slika4.jpg" style="width:100%">
+                    <img src="~/Content/Images/slika5.jpg" style="width:100%">
+                    <img src="~/Content/Images/slika6.png" style="width:100%">
+                    <img src="~/Content/Images/slika7.jpg" style="width:100%">
+                </div>
+                <!-- End photo grid -->
+            </div>
+            <!-- End Portfolio Section -->
+        </div>
+
+        <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+            <i class="fa fa-facebook-official w3-hover-opacity"></i>
+            <i class="fa fa-instagram w3-hover-opacity"></i>
+            <i class="fa fa-snapchat w3-hover-opacity"></i>
+            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+            <i class="fa fa-twitter w3-hover-opacity"></i>
+            <i class="fa fa-linkedin w3-hover-opacity"></i>
+            <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+            <!-- End footer -->
+        </footer>
+        <!-- END PAGE CONTENT -->
+    </div>
+
+</body>
+</html>

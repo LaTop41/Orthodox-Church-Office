@@ -1,0 +1,213 @@
+﻿@model Crkvena_Kancelarija.Models.Login
+
+@{
+    Layout = null;
+
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Логовање</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/Style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <style>
+        #login-div {
+            position: absolute;
+            left: 30%;
+            width:600px;
+            height:300px;
+            top: 30%;
+            border: 1px solid #ccc;
+            padding: 10px 10px;
+        }
+
+
+        .field-validation-error {
+            color: red;
+        }
+             html {
+        box-sizing: border-box;
+      }
+
+        *,
+        *:before,
+        *:after {
+          box-sizing: inherit;
+        }
+
+body {
+        background: #fafafa;
+        font-size: 16px;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        color: #2f2d4f;
+}
+        .wrapper {
+            position: center;
+            max-width: 1000px;
+            height: 200px;
+            background: white;
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25), 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            margin: inherit;
+            margin-top: 0px;
+
+        }
+           .img-thumbnail::before{
+
+              content: " ";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 1;
+                background-image: url("@Url.Content("~/Content/Images/logo.png")");
+                background-repeat: no-repeat;
+              background-position: center center;
+            opacity: 0.3;
+            background-size: 500px;
+                    }
+
+        #input {
+            background: #ececec;
+            border: none;
+            height: 28px;
+            width: 177px;
+            border-radius: 3px;
+            padding: 8px 6px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 11px;
+         }
+
+
+
+            #input {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 16px;
+            }
+
+        form {
+        max-width: 500px;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        z-index: 5;
+    }
+ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+    .w3-row-padding img {margin-bottom: 12px}
+
+    .w3-sidebar {width: 120px;}
+
+    #main {margin-left: 120px}
+    </style>
+
+
+
+
+  
+
+
+    <div class="img-thumbnail">
+        <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+            <!-- Avatar image in top left corner -->
+            <img src="~/Content/Images/krst.png" style="width:50%">
+            <a href='@Url.Action("Index", "Home")' class="w3-bar-item w3-button w3-padding-large w3-black">
+                <i class="fa fa-home w3-xxlarge"></i>
+                <p>ПОЧЕТНА</p>
+            </a>
+            <a href='@Url.Action("Index", "Onama")' class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-user w3-xxlarge"></i>
+                <p>О НАМА</p>
+            </a>
+            <a href='@Url.Action("Index", "Slike")' class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-eye w3-xxlarge"></i>
+                <p>СЛИКЕ</p>
+            </a>
+            <a href='@Url.Action("Index", "Kontakt")' class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-envelope w3-xxlarge"></i>
+                <p>КОНТАКТ</p>
+            </a>
+            <a href='@Url.Action("Index", "Login")' class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-user w3-xxlarge"></i>
+                <p>УЛОГУЈ СЕ</p>
+            </a>
+            <a href='@Url.Action("Index", "Registracija")' class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-registered w3-xxlarge"></i>
+                <p>РЕГИСТРУЈ СЕ</p>
+            </a>
+        </nav>
+        <div class="wrapper" id="login-div">
+
+
+            @using (Html.BeginForm("Autorizacija", "Login", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken();//
+                if (ViewBag.Message == null)
+                {
+                    <div id="popupdiv" style="border:1px solid red; display:none">
+                        @ViewBag.Message
+                    </div>
+                }
+
+                <h3 style="position:center">Српска Православна Црква</h3>
+
+                <table>
+
+                   
+                    <tr>
+                        <td>@Html.LabelFor(model => model.Korisnik)</td>
+                        <td name="input">@Html.EditorFor(model => model.Korisnik)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(model => model.Korisnik)</td>
+                    </tr>
+                    <tr>
+                        <td>@Html.LabelFor(model => model.Sifra)</td>
+                        <td name="input">@Html.EditorFor(model => model.Sifra)</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>@Html.ValidationMessageFor(model => model.Sifra)</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <label class="field-validation-error">@Html.DisplayFor(model => model.LoginErrorPoruka)</label>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                            <button class="btn btn-primary" type="submit">Пријави се</button>
+                        </td>
+                     
+                        <td>
+                            <button class="btn btn-warning" type="reset">Ресетуј</button>
+                        </td>
+                    </tr>
+
+                </table>
+            }
+
+            <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+            <script src="~/Scripts/jquery.validate.min.js"></script>
+            <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        </div>
+    </div>
+</body>
+</html>

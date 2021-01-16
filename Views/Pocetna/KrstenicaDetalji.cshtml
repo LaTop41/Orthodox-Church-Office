@@ -1,0 +1,289 @@
+﻿@model Crkvena_Kancelarija.Models.Krstenica
+
+@{
+    ViewBag.Title = "Крштеница детаљи";
+}
+
+<h2>Крштеница детаљи</h2>
+
+<div>
+    <h4>Крштеница</h4>
+    <hr />
+    <div class="col-md-6">
+        <dl class="dl-horizontal">
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.SifraDokumenta)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SifraDokumenta)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.SifraKrstenice)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SifraKrstenice)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.ImeVernika)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ImeVernika)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.PrezimeVernika)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PrezimeVernika)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.Pol)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Pol)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.DatumRodjenja)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DatumRodjenja)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.Eparhija)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Eparhija)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.Hram)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Hram)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.TekucaGodina)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TekucaGodina)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.ZanimanjeVernika)
+            </dt>
+            @if (Model.ZanimanjeMajke != null && !String.IsNullOrEmpty(Model.ZanimanjeMajke))
+            {
+                <dd>
+                    @Html.DisplayFor(model => model.ZanimanjeVernika)
+                </dd>
+            }
+            else
+            {
+                <dd>
+                    @Html.DisplayName(" / ")
+                </dd>
+            }
+
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.MestoRodjenja)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MestoRodjenja)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.DatumKrstenja)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DatumKrstenja)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.ImeOca)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ImeOca)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.PrezimeOca)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PrezimeOca)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.ImeMajke)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ImeMajke)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.PrezimeMajke)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PrezimeMajke)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.ZanimanjeOca)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ZanimanjeOca)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.ZanimanjeMajke)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ZanimanjeMajke)
+            </dd>
+        </dl>
+    </div>
+    <div class="col-sm-6">
+        <dl class="dl-horizontal">
+            <dt style="width:150px;">
+                @Html.DisplayName("Место стан родитеља")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MestoStanovanjaRoditelja)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.NarodnostOca)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NarodnostOca)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.NarodnostMajke)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NarodnostMajke)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.DetePoRedu)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DetePoRedu)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.DeteBlizanac)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DeteBlizanac)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.TelesniNedostaci)
+            </dt>
+
+            @if (Model.TelesniNedostaci != null && !String.IsNullOrEmpty(Model.TelesniNedostaci))
+            {
+                <dd>
+                    @Html.DisplayFor(model => model.TelesniNedostaci)
+                </dd>
+            }
+            else
+            {
+                <dd>
+                    @Html.DisplayName(" / ")
+                </dd>
+            }
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.ImeKuma)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ImeKuma)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.PrezimeKuma)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PrezimeKuma)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.MestoStanovanjaKuma)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MestoStanovanjaKuma)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.ImeSvestenika)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ImeSvestenika)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.PrezimeSvestenika)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PrezimeSvestenika)
+            </dd>
+
+            <dt style="width:150px;">
+                @Html.DisplayNameFor(model => model.Primedba)
+            </dt>
+
+            @if (Model.Primedba != null && !String.IsNullOrEmpty(Model.Primedba))
+            {
+                <dd>
+                    @Html.DisplayFor(model => model.Primedba)
+                </dd>
+            }
+            else
+            {
+                <dd>
+                    @Html.DisplayName(" / ")
+                </dd>
+            }
+
+        </dl>
+    </div>
+
+</div>
+
+

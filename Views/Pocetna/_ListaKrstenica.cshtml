@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Crkvena_Kancelarija.Models.Krstenica>
+
+
+
+<p>
+    @using (@Html.BeginForm("GetByImeK", "Pocetna", FormMethod.Get))
+    {
+
+        @Html.TextBox("ime") <input type="submit" value="Tражи име" />
+    }
+</p>
+<center>
+
+
+    <table class="table">
+        <tr>
+
+            
+            <th>
+                @Html.DisplayNameFor(model => model.ImeVernika)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrezimeVernika)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Hram)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.DatumKrstenja)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ImeSvestenika)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrezimeSvestenika)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.ImeVernika)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrezimeVernika)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Hram)
+            </td>
+            <th>
+                @Html.DisplayFor(model => item.DatumKrstenja)
+            </th>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImeSvestenika)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrezimeSvestenika)
+            </td>
+
+            <td>
+                @Html.ActionLink("Измени", "EditKrstenica", new { id = item.SifraKrstenice }) |
+                @Html.ActionLink("Детаљи", "KrstenicaDetalji", new { id = item.SifraKrstenice }) |
+                @Html.ActionLink("Обриши", "DeleteKrstenica", new { id = item.SifraKrstenice })|
+                @Html.ActionLink("ПДФ", "PrintK", new { id = item.SifraKrstenice })
+
+            </td>
+        </tr>
+        }
+
+    </table>
+</center>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

@@ -1,0 +1,88 @@
+﻿@model Crkvena_Kancelarija.Models.Narudzbenica
+
+@{
+    ViewBag.Title = "Избриши молбу";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@{
+    var message = TempData["DeleteMolba"] ?? string.Empty;
+}
+<h2>Избриши молбу</h2>
+
+<h3>Да ли сте сигурни да желите избрисати молбу?</h3>
+<div>
+    <h4>Молба</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Ime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prezime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prezime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayName("Врста захтеваног документа ")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dokument.VrstaDokumenta)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Избриши" class="btn btn-default" />
+
+        </div>
+    }
+</div>
+<script type="text/javascript">
+    var message = '@message';
+    if(message)
+        alert(message);
+</script>
