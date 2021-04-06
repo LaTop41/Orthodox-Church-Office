@@ -1,0 +1,256 @@
+﻿@model Crkvena_Kancelarija.Models.Umrlica
+
+@{
+    ViewBag.Title = "Обриши умрлицу";
+}
+@{
+
+    if (Session["id"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+
+<h2>ОБРИШИ УМРЛИЦУ</h2>
+
+<h3>Да ли сте сигурни да желите избрисати умрлицу?</h3>
+<div>
+    <h4>Умрлица</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SifraDokumenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SifraDokumenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SifraUmrlice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SifraUmrlice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImePreminulog)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImePreminulog)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezimePreminulog)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezimePreminulog)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pol)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pol)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumRodjenja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumRodjenja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MestoRodjenja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MestoRodjenja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eparhija)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eparhija)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TekucaGodina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TekucaGodina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZanimanjePreminulog)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZanimanjePreminulog)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MestoRodjenjaPreminulog)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MestoRodjenjaPreminulog)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BracnoStanje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BracnoStanje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImeBracnogPartnera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeBracnogPartnera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezimeBracnogPartnera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezimeBracnogPartnera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZanimanjeBracnogPartnera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZanimanjeBracnogPartnera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MestoStanovanjaBracnogPartnera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MestoStanovanjaBracnogPartnera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrojDece)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrojDece)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PodaciODeci)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PodaciODeci)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MestoPreminuca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MestoPreminuca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumSmrti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumSmrti)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumSahrane)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumSahrane)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MestoIGrobljeSahrane)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MestoIGrobljeSahrane)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UzrokSmrti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UzrokSmrti)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImeSvestenika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeSvestenika)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezimeSvestenika)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezimeSvestenika)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IspovedjenIPricescen)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IspovedjenIPricescen)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Primedba)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Primedba)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Избриши" class="btn btn-default" /> |
+            
+        </div>
+    }
+</div>

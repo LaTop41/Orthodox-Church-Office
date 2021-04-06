@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="78a1d81069ff46a3a953a820a520fcae" Name="Diagram1" ZoomLevel="64">
+        <EntityTypeShape EntityType="CrkvenaKancelarijaModel.Dokument" Width="1.5" PointX="22.375" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrkvenaKancelarijaModel.Krstenica" Width="2.5" PointX="20.625" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrkvenaKancelarijaModel.Login" Width="1.5" PointX="18" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrkvenaKancelarijaModel.Narudzbenica" Width="1.5" PointX="20.125" PointY="12.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrkvenaKancelarijaModel.sysdiagram" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrkvenaKancelarijaModel.Umrlica" Width="2.75" PointX="16.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CrkvenaKancelarijaModel.VencaniList" Width="2.625" PointX="24.625" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="CrkvenaKancelarijaModel.FK_Krstenica_Dokument" ManuallyRouted="false" />
+        <AssociationConnector Association="CrkvenaKancelarijaModel.FK_Narudzbenica_Dokument" ManuallyRouted="false" />
+        <AssociationConnector Association="CrkvenaKancelarijaModel.FK_Umrlica_Dokument" ManuallyRouted="false" />
+        <AssociationConnector Association="CrkvenaKancelarijaModel.FK_VencaniList_Dokument" ManuallyRouted="false" />
+        <AssociationConnector Association="CrkvenaKancelarijaModel.FK_Narudzbenica_Login" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

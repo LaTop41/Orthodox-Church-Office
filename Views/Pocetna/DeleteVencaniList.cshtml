@@ -1,0 +1,342 @@
+﻿@model Crkvena_Kancelarija.Models.VencaniList
+
+@{
+    ViewBag.Title = "Обриши венчаниЛист";
+}
+@{
+
+    if (Session["id"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+<h2>ОБРИШИ ВЕНЧАНИ ЛИСТ</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Венчани лист</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SifraDokumenta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SifraDokumenta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SifraVencanogLista)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SifraVencanogLista)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImeMladozenje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeMladozenje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezimeMladozenje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezimeMladozenje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImeMlade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeMlade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezimeMlade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezimeMlade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumRodjenjaMladozenje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumRodjenjaMladozenje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumRodjenjaMlade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumRodjenjaMlade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MestoStanovanjaMladenaca)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MestoStanovanjaMladenaca)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VeroispovestMladozenje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VeroispovestMladozenje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VeroispovestMlade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VeroispovestMlade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NarodnostMladozenje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NarodnostMladozenje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NarodnostMlade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NarodnostMlade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eparhija)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eparhija)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hram)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hram)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TekucaGodina)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TekucaGodina)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImeOcaMladozenje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeOcaMladozenje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezimeOcaMladozenje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezimeOcaMladozenje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImeMajkeMladozenje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeMajkeMladozenje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezimeMajkeMladozenje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezimeMajkeMladozenje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImeOcaMlade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeOcaMlade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezimeOcaMlade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezimeOcaMlade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImeMajkeMlade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeMajkeMlade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrezimeMajkeMlade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrezimeMajkeMlade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrakPoReduMladozenja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrakPoReduMladozenja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BrakPoReduMlada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BrakPoReduMlada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IspitaniIOglaseni)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IspitaniIOglaseni)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumVencanja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumVencanja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MestoVencanja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MestoVencanja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HramVencanja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HramVencanja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImeIPrezimeKuma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeIPrezimeKuma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZanimanjeKuma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZanimanjeKuma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MestoStanovanjaKuma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MestoStanovanjaKuma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImeIPrezimeStarogSvata)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImeIPrezimeStarogSvata)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ZanimanjeStarogSvata)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ZanimanjeStarogSvata)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VeroispovestStarogSvata)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VeroispovestStarogSvata)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MestoStanovanjaStarogSvata)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MestoStanovanjaStarogSvata)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Smetnje)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Smetnje)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Primedba)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Primedba)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Избриши" class="btn btn-default" /> |
+        </div>
+    }
+</div>

@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Crkvena_Kancelarija.Models.Umrlica>
+
+
+<p>
+    @using (@Html.BeginForm("GetByImeU", "Pocetna", FormMethod.Get))
+    {
+
+        @Html.TextBox("ime") <input type="submit" value="Tражи име" />
+    }
+</p>
+<center>
+
+    <table class="table">
+        <tr>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.ImePreminulog)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrezimePreminulog)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.DatumSahrane)
+            </th>
+
+
+            <th>
+                @Html.DisplayNameFor(model => model.Hram)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ImeSvestenika)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrezimeSvestenika)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImePreminulog)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrezimePreminulog)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatumSahrane)
+                </td>
+
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hram)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImeSvestenika)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrezimeSvestenika)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IspovedjenIPricescen)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Измени", "EditUmrlica", new { id = item.SifraUmrlice }) |
+                    @Html.ActionLink("Детаљи", "UmrlicaDetalji", new { id = item.SifraUmrlice }) |
+                    @Html.ActionLink("Избриши", "DeleteUmrlica", new { id = item.SifraUmrlice }) |
+                    @Html.ActionLink("ПДФ", "PrintU", new { id = item.SifraUmrlice })
+                </td>
+            </tr>
+        }
+
+    </table>
+</center>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

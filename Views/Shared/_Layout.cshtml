@@ -1,0 +1,175 @@
+﻿
+@using Crkvena_Kancelarija.Models;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <style>
+
+        html {
+            box-sizing: border-box;
+        }
+
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+
+        body {
+            background: #fafafa;
+            font-size: 16px;
+            font-family: 'Nunito', sans-serif;
+            font-style: normal;
+            color: #2f2d4f;
+            width:auto;
+        }
+
+        .material-icons-outlined.md-12 {
+            font-size: 12px;
+        }
+
+        .material-icons-outlined.md-18 {
+            font-size: 18px;
+        }
+
+        .material-icons-outlined.md-24 {
+            font-size: 24px;
+        }
+
+        .wrapper {
+            max-width: 1300px;
+            margin: auto;
+            min-height: 630px;
+            border-radius: 20px;
+            margin-top: 7vh;
+            background: #fff;
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25), 0px 4px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+        }
+
+        .navigation {
+            padding-top: 60px;
+            width: 180px;
+            border-right: 2px solid #e0e0e0;
+            min-height: 100%;
+        }
+
+        .content {
+            min-height: 100%;
+            padding: 50px 20px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            
+        }
+        form{
+            width:110%;
+        }
+        .navigation ul {
+            list-style: none;
+            margin: 0;
+            padding: 0 18px;
+        }
+
+        .nav-item {
+            padding: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            line-height: 16px;
+            color: #757575;
+            margin-bottom: 4px;
+            width:168px;
+        }
+
+            .nav-item.active {
+                background: #c4d4ff9e;
+                border-radius: 3px;
+                color: #555555;
+            }
+
+        .primary-button {
+            background: #6a94fe;
+            border: none;
+            height: 24px;
+            font-size: 12px;
+            color: #fff;
+            padding: 0 16px;
+            border-radius: 3px;
+            text-align: center;
+        }
+        
+
+        .primary-button {
+            background: #6a94fe;
+            border: none;
+            height: 24px;
+            max-width: 90px;
+            font-size: 12px;
+            color: #fff;
+            padding: 0 16px;
+            border-radius: 3px;
+            text-align: center;
+            place-self: center;
+        }
+
+
+    </style>
+
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="navigation">
+            <ul>
+                <li class="nav-item @(ViewBag.Current == "Pocetna" ? "active" : "")">
+                    @Html.ActionLink("Црквена канцеларија", "Index", "Pocetna")
+
+                </li>
+                <li class="nav-item  @(ViewBag.Current == "Krstenice" ? "active" : "")">
+
+                    @Html.ActionLink("Нова крштеница", "NovaKrstenica", "Krstenice")
+                </li>
+                <li class="nav-item  @(ViewBag.Current == "Umrlice" ? "active" : "")">
+                    @Html.ActionLink("Нова умрлица", "NovaUmrlica", "Umrlice")
+                </li>
+                <li class="nav-item  @(ViewBag.Current == "VencaniListovi" ? "active" : "")">
+                    @Html.ActionLink("Нови венчани лист", "NoviVencaniList", "VencaniListovi")
+                </li>
+                <li class="nav-item  @(ViewBag.Current == "Molba" ? "active" : "")">
+                    @Html.ActionLink("Молбе", "listaMolbi", "Molba")
+                </li>
+
+
+
+                <li class="nav-item top-right">
+                    <script>
+                        function confirmLogout() {
+                            if (confirm("Да ли сте сигурни да желите да се одјавите?")) {
+                                window.location.href = "@Url.Action("Logout", "Login")";
+                            }
+                        }
+                    </script>
+                    <a onclick="confirmLogout()">Одјави се</a>
+
+                </li>
+
+            </ul>
+
+            
+        </div>
+        <div class="content">
+            @RenderBody()
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

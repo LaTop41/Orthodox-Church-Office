@@ -1,0 +1,136 @@
+﻿
+
+@{
+
+    if (Session["id"] == null)
+    {
+        Response.Redirect("~/Login/Index");
+    }
+}
+
+
+
+@using System.Collections.Generic;
+@using Crkvena_Kancelarija.Models
+
+@{
+    var message7 = TempData["NovaKrstenica"] ?? string.Empty;
+}
+
+
+@{
+    var message = TempData["PorukaAdminu"] ?? string.Empty;
+}
+@{
+    var message1 = TempData["PorukaIzmeneK"] ?? string.Empty;
+}
+@{
+    var message2 = TempData["PorukaIzmeneU"] ?? string.Empty;
+}
+@{
+    var message3 = TempData["PorukaIzmeneV"] ?? string.Empty;
+}
+
+@{
+    var message4 = TempData["PorukaDeleteK"] ?? string.Empty;
+}
+@{
+    var message5 = TempData["PorukaDeleteU"] ?? string.Empty;
+}
+@{
+    var message6 = TempData["PorukaDeleteV"] ?? string.Empty;
+}
+<!DOCTYPE html>
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Свештеник</title>
+</head>
+
+<body>
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+        </script>
+    }
+    <div class="row">
+        <div class="col-md-4">
+            <label class="control-label">Документи</label>
+            @Html.DropDownList("Dokumenti", new SelectList(ViewBag.Dokumenti, "SifraDokumenta", "VrstaDokumenta"), new { @class = "form-control", onchange = "OnSelectDokument(this.value)" })
+
+        </div>
+        <div class="col-md-4">
+
+        </div>
+    </div>
+    <br />
+    <div id="dokumenti">
+        @{
+            Html.RenderAction("GetDokumentBySifra", "Pocetna", new { Sifra = 1 });
+        }
+    </div>
+</body>
+<script>
+    function OnSelectDokument(ID) {
+        $.ajax({
+            url: '@Url.Action("GetDokumentBySifra", "Pocetna")',
+            data: { Sifra: ID },
+            success: function (result) {
+                $('#dokumenti').html(result);
+            }
+        });
+    }
+
+</script>
+
+<script type="text/javascript">
+    var message = '@message';
+    if(message)
+        alert(message);
+</script>
+<script type="text/javascript">
+    var message1 = '@message1';
+    if(message1)
+        alert(message1);
+</script>
+<script type="text/javascript">
+    var message2 = '@message2';
+    if(message2)
+        alert(message2);
+</script>
+<script type="text/javascript">
+    var message3= '@message3';
+    if(message3)
+        alert(message3);
+</script>
+
+<script type="text/javascript">
+    var message4 = '@message4';
+    if(message4)
+        alert(message4);
+</script>
+<script type="text/javascript">
+    var message5 = '@message5';
+    if(message5)
+        alert(message5);
+</script>
+<script type="text/javascript">
+    var message6= '@message6';
+    if(message6)
+        alert(message6);
+</script>
+<script type="text/javascript">
+    var message7 = '@message7';
+    if(message7)
+        alert(message7);
+</script>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script src="~/Scripts/jquery-3.3.1.js"></script>

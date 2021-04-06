@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Crkvena_Kancelarija.Models.VencaniList>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_ListaVencanih</title>
+</head>
+
+<body>
+    <p>
+        @using (@Html.BeginForm("GetByImeV", "Pocetna", FormMethod.Get))
+        {
+
+            @Html.TextBox("ime") <input type="submit" value="Tражи презиме" />
+        }
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ImeMladozenje)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.ImeMlade)
+            </th>
+            <th>
+                @Html.DisplayName("Презиме")
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Eparhija)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hram)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.DatumVencanja)
+            </th>
+
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImeMladozenje)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ImeMlade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrezimeMladozenje)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Eparhija)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hram)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.DatumVencanja)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Измени", "EditVencaniList", new { id = item.SifraVencanogLista }) |
+                    @Html.ActionLink("Детаљи", "VencaniListDetalji", new { id = item.SifraVencanogLista }) |
+                    @Html.ActionLink("Обриши", "DeleteVencaniList", new { id = item.SifraVencanogLista })|
+                    @Html.ActionLink("ПДФ", "PrintV", new { id = item.SifraVencanogLista })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+}

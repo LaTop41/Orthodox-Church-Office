@@ -1,0 +1,285 @@
+﻿@model Crkvena_Kancelarija.Models.Narudzbenica
+@{
+    Layout = null;
+}
+
+
+@{
+    var message = TempData["PorukaKorisniku"] ?? string.Empty;
+}
+@{
+    var message1 = TempData["NovaMolba"] ?? string.Empty;
+}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Molba</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="~/Content/Style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <style>
+        #login-div {
+            position: absolute;
+            left: 30%;
+            width:600px;
+            height:680px;
+            top: 5%;
+            border: 1px solid #ccc;
+            padding: 10px 10px;
+        }
+
+
+        .field-validation-error {
+            color: red;
+        }
+             html {
+        box-sizing: border-box;
+      }
+
+        *,
+        *:before,
+        *:after {
+          box-sizing: inherit;
+        }
+
+body {
+        background: #fafafa;
+        font-size: 16px;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 600;
+        font-style: normal;
+        color: #2f2d4f;
+}
+        .wrapper {
+            position: center;
+            max-width: 1000px;
+            height: 500px;
+            background: white;
+            box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25), 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            margin: inherit;
+            margin-top: 0px;
+
+        }
+           .img-thumbnail::before{
+
+              content: " ";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                z-index: 1;
+                background-image: url("@Url.Content("~/Content/Images/logo.png")");
+                background-repeat: no-repeat;
+              background-position: center center;
+            opacity: 0.3;
+            background-size: 500px;
+                    }
+
+        #input {
+            background: #ececec;
+            border: none;
+            height: 28px;
+            width: 177px;
+            border-radius: 3px;
+            padding: 8px 6px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 11px;
+         }
+
+
+
+            #input {
+                display: flex;
+                flex-direction: column;
+                margin-bottom: 16px;
+            }
+
+        form {
+        max-width: 500px;
+
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        z-index: 5;
+    }
+ body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+    .w3-row-padding img {margin-bottom: 12px}
+
+    .w3-sidebar {width: 120px;}
+
+    #main {margin-left: 120px}
+    </style>
+    <div class="img-thumbnail">
+        <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+            <!-- Avatar image in top left corner -->
+            <img src="~/Content/Images/krst.png" style="width:50%">
+            <a href='@Url.Action("Index", "Home")' class="w3-bar-item w3-button w3-padding-large w3-black">
+                <i class="fa fa-home w3-xxlarge"></i>
+                <p>ПОЧЕТНА</p>
+            </a>
+            <a href='@Url.Action("Index", "Onama")' class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-user w3-xxlarge"></i>
+                <p>О НАМА</p>
+            </a>
+            <a href='@Url.Action("Index", "Slike")' class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-eye w3-xxlarge"></i>
+                <p>СЛИКЕ</p>
+            </a>
+            <a href='@Url.Action("Index", "Kontakt")' class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-envelope w3-xxlarge"></i>
+                <p>КОНТАКТ</p>
+            </a>
+
+            <a onclick="confirmLogout()" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-sign-out w3-xxlarge"></i>
+                <p>ИЗЛОГУЈ СЕ</p>
+            </a>
+        </nav>
+
+        <div class="wrapper" id="login-div">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>Молба</h4>
+                    <hr />
+                    <div class="col-md-6">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.SifraDokumenta, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+
+                                @Html.RadioButtonFor(model => model.SifraDokumenta, 1)
+                                @Html.Label("Крштеница")
+                                <br />
+                                @Html.RadioButtonFor(model => model.SifraDokumenta, 2)
+                                @Html.Label("Умрлица")
+                                <br />
+                                @Html.RadioButtonFor(model => model.SifraDokumenta, 3)
+                                @Html.Label("Венчани лист")
+
+                                <br />
+
+                                @Html.ValidationMessageFor(model => model.SifraDokumenta, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.ID, new { @Value = Session["id"] })
+                                <br />
+                                @Html.ValidationMessageFor(model => model.ID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Ime, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Ime, new { htmlAttributes = new { @class = "form-control" } })
+                                <br />
+                                @Html.ValidationMessageFor(model => model.Ime, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Prezime, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Prezime, new { htmlAttributes = new { @class = "form-control" } })
+                                <br />
+                                @Html.ValidationMessageFor(model => model.Prezime, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Hram, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Hram, new { htmlAttributes = new { @class = "form-control" } })
+                                <br />
+                                @Html.ValidationMessageFor(model => model.Hram, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Telefon, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Telefon, new { htmlAttributes = new { @class = "form-control" } })
+                                <br />
+                                @Html.ValidationMessageFor(model => model.Telefon, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                                <br />
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <br />
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.Datum, new { @Value = DateTime.Today.ToString("o") })
+
+                                @Html.ValidationMessageFor(model => model.Datum, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-md-10">
+                                @Html.HiddenFor(model => model.Reseno, new { @Value = false })
+
+                                @Html.ValidationMessageFor(model => model.Reseno, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Потврди" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+            <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+            <script src="~/Scripts/jquery.validate.min.js"></script>
+            <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+        </div>
+    </div>
+
+</body>
+</html>
+<script>
+  function confirmLogout() {
+     if (confirm("Да ли сте сигурни да желите да се одјавите?")) {
+     window.location.href = "@Url.Action("Logout", "Login")";
+                            }
+                        }
+</script>
+
+<script type="text/javascript">
+    var message = '@message';
+    if(message)
+        alert(message);
+</script>
+<script type="text/javascript">
+    var message1 = '@message1';
+    if(message1)
+        alert(message1);
+</script>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
